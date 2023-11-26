@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/intro_page.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: 'Flutter Demo',
-    theme: ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      useMaterial3: true,
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: IntroPage(),
     ),
-    home: const IntroPage(),
-  ));
+  );
 }
