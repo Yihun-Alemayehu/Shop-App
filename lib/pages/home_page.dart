@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shop_app/Components/grocery_item_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -60,10 +61,18 @@ class _HomePageState extends State<HomePage> {
                   fontSize: 16,
                 ),
               ),
-            )
+            ),
+
+            // List of items
+            Expanded(child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
+              itemBuilder: (context, index){
+                return const GroceryItemTile();
+            }))
           ],
         ),
       ),
     );
   }
 }
+
