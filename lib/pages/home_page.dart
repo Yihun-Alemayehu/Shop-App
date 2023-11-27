@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/Components/grocery_item_tile.dart';
 import 'package:shop_app/Models/cart_model.dart';
+import 'package:shop_app/pages/cart_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +17,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) {
+            return const CartPage();
+          }),
+        ),
         backgroundColor: Colors.black,
         child: const Icon(Icons.shopping_bag_outlined),
       ),
@@ -82,6 +88,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                   itemBuilder: (context, index) {
                     return GroceryItemTile(
+                      onPressed: () {
+                        Provider.of<CartModel>(context, listen: false)
+                            .addItemToCart(index);
+                      },
                       itemName: value.shopItems[index][0],
                       itemPrice: value.shopItems[index][1],
                       imagePath: value.shopItems[index][2],
