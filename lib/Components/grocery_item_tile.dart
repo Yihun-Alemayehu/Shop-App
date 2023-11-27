@@ -4,7 +4,7 @@ class GroceryItemTile extends StatelessWidget {
   final String itemName;
   final String itemPrice;
   final String imagePath;
-  final String color;
+  final color;
 
   const GroceryItemTile({
     super.key,
@@ -16,6 +16,15 @@ class GroceryItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Container(
+      child: Column(children: [
+        //  Item image
+        Image.asset(imagePath),
+
+        // Item name
+
+        // Item price
+      ]),
+    );
   }
 }
