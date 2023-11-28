@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/Models/cart_model.dart';
 
@@ -9,13 +10,27 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
           title: const Text('My cart'),
           centerTitle: true,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.black),
         ),
         body: Consumer<CartModel>(
           builder: (context, value, child) {
             return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(
+                    "My Cart",
+                    style: GoogleFonts.notoSerif(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),
@@ -59,16 +74,53 @@ class CartPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Total Price'),
                             Text(
-                              value.calculateTotal(),
-                              style: const TextStyle(color: Colors.white),
+                              'Total Price',
+                              style: TextStyle(
+                                  color: Colors.green[100],
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              '${value.calculateTotal()} Br',
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
-                        )
+                        ),
+
+                        // Pay Now
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Row(
+                            children: [
+                              Text(
+                                'Pay Now',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios_outlined,
+                                color: Colors.white,
+                                size: 16,
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
