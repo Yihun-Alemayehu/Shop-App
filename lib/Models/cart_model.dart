@@ -30,11 +30,11 @@ class CartModel extends ChangeNotifier {
 
   //calculate the total
   String calculateTotal() {
-    double totalPrice = 0;
+    dynamic totalPrice = 0;
     for (int i = 0; i < _cartItems.length; ++i) {
       totalPrice += _cartItems[i][1];
     }
-
+    //notifyListeners();
     return totalPrice.toStringAsFixed(2);
   }
 }
