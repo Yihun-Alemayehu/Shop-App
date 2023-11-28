@@ -10,11 +10,25 @@ class CartModel extends ChangeNotifier {
     ["Water", "12", "assets/water.png", Colors.blue],
   ];
 
+  final List _paymentOptions = [
+    ["cbe", "assets/cbe.jpg"],
+    ["cbe birr", "assets/cbe birr.jpg"],
+    ["telebirr", "assets/telebirr.jpg"],
+    ["amole", "assets/amole.png"],
+    ["awash", "assets/awash.jpg"],
+    ["abyssinia", "assets/abyssinia.png"],
+    ["dashen", "assets/dashen.jpg"],
+    ["M-pessa", "assets/mpessa.png"],
+    ["bitcoin", "assets/bitcoin.png"],
+  ];
+
   List _cartItems = [];
 
   get shopItems => _shopItems;
 
   get cartItems => _cartItems;
+
+  get paymentOptions => _paymentOptions;
 
   // add to cart
   void addItemToCart(int index) {

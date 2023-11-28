@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/Models/cart_model.dart';
+import 'package:shop_app/pages/payment_options_page.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -34,7 +35,7 @@ class CartPage extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: ListView.builder(
+                    child: ListView.builder( 
                       itemCount: value.cartItems.length,
                       itemBuilder: (context, index) {
                         return Padding(
@@ -99,26 +100,38 @@ class CartPage extends StatelessWidget {
                         ),
 
                         // Pay Now
-                        Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: const Row(
-                            children: [
-                              Text(
-                                'Pay Now',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const PaymentOptionsPage();
+                                },
                               ),
-                              Icon(
-                                Icons.arrow_forward_ios_outlined,
-                                color: Colors.white,
-                                size: 16,
-                              )
-                            ],
+                            );
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Row(
+                              children: [
+                                Text(
+                                  'Pay Now',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.arrow_forward_ios_outlined,
+                                  color: Colors.white,
+                                  size: 16,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ],
