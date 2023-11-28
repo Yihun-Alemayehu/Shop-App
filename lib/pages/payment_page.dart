@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/Models/cart_model.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class PaymentPage extends StatefulWidget {
   const PaymentPage({super.key});
@@ -117,8 +118,9 @@ class _PaymentPageState extends State<PaymentPage> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: TextButton(
-                    onPressed: () {
-                      pay('+251982394038');
+                    onPressed: () async {
+                      await FlutterPhoneDirectCaller.callNumber(
+                          '*847*1*1*0982394038*5*5521*1#');
                     },
                     child: const Text(
                       'Pay',
