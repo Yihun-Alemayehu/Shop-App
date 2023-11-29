@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/Models/cart_model.dart';
 import 'package:shop_app/pages/payment_page.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class PaymentOptionsPage extends StatelessWidget {
   const PaymentOptionsPage({super.key});

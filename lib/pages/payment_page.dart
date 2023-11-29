@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/Models/cart_model.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -18,14 +17,6 @@ class _PaymentPageState extends State<PaymentPage> {
   void initState() {
     _controller = TextEditingController();
     super.initState();
-  }
-
-  void pay(String phoneNumber) async {
-    if (await canLaunchUrl('tel:$phoneNumber' as Uri)) {
-      await launchUrl('tel:$phoneNumber' as Uri);
-    } else {
-      throw 'Could not launch $phoneNumber';
-    }
   }
 
   @override
@@ -119,7 +110,7 @@ class _PaymentPageState extends State<PaymentPage> {
                   ),
                   child: TextButton(
                     onPressed: () async {
-                      await FlutterPhoneDirectCaller.callNumber(
+                      FlutterPhoneDirectCaller.callNumber(
                           '*847*1*1*0982394038*5*5521*1#');
                     },
                     child: const Text(
