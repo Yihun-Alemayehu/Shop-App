@@ -4,10 +4,10 @@ class CartModel extends ChangeNotifier {
   //List of items on sale
   final List _shopItems = [
     // [itemName, itemPrice, imagePath, color]
-    ["Avocado", "60", "assets/avocado.png", Colors.green],
-    ["Banana", "40", "assets/banana.png", Colors.yellow],
-    ["chicken", "120", "assets/chicken.png", Colors.brown],
-    ["Water", "12", "assets/water.png", Colors.blue],
+    ["ፍርፍር", "80", "assets/frfr1.jpg", Colors.green],
+    ["ፓስታ", "80", "assets/pasta.jpg", Colors.yellow],
+    ["ሽሮ", "80", "assets/shiro.jpg", Colors.brown],
+    ["ቲማቲም", "80", "assets/timatim.jpg", Colors.blue],
   ];
 
   final List _paymentOptions = [
