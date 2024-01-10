@@ -13,14 +13,17 @@ class IntroPage extends StatelessWidget {
           // Logo image
           Padding(
             padding: const EdgeInsets.only(
-                left: 80.0, right: 80, bottom: 40, top: 160),
-            child: Image.asset('assets/avocado.png'),
+                left: 80.0, right: 80, bottom: 10, top: 80),
+            child: Image.asset(
+              'assets/delivery3.jpg',
+              height: 400,
+            ),
           ),
 
           // delivery motto
           Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Text('We deliver groceries at your doorstep',
+            padding: const EdgeInsets.only(right: 24, bottom: 24, left: 24),
+            child: Text('We deliver Food at your dorm doorstep',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.notoSerif(
                   fontSize: 40,
@@ -28,7 +31,7 @@ class IntroPage extends StatelessWidget {
           ),
 
           // Fresh items everyday
-          const Text('Fresh items everyday'),
+          const Text('Fresh Food everyday'),
 
           const Spacer(),
 

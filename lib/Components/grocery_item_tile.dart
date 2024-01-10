@@ -32,11 +32,14 @@ class GroceryItemTile extends StatelessWidget {
             //  Item image
             Image.asset(
               imagePath,
-              height: 65,
+              height: 100,
             ),
 
             // Item name
-            Text(itemName),
+            Text(
+              itemName,
+              style: const TextStyle(fontSize: 24),
+            ),
 
             // Item price
             MaterialButton(

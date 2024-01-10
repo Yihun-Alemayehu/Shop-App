@@ -36,14 +36,25 @@ class _HomePageState extends State<HomePage> {
             // Good morning
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
-              child: Text('Good morning,'),
+              child: Text(
+                'እሙ ሽሮ',
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
+            // const Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: 24),
+            //   child: Text('Good Evening,'),
+            // ),
 
             // let's order
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Text(
-                "let's order Fresh items for you",
+                "let's order Fresh Foods for you",
                 style: GoogleFonts.notoSerif(
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
@@ -69,7 +80,7 @@ class _HomePageState extends State<HomePage> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
               child: Text(
-                'Fresh items',
+                'Fresh Foods',
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -77,30 +88,33 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // List of items
-            Expanded(child: Consumer<CartModel>(
-              builder: (context, value, child) {
-                return GridView.builder(
-                  itemCount: value.shopItems.length,
-                  padding: const EdgeInsets.all(12),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 1 / 1.3,
-                  ),
-                  itemBuilder: (context, index) {
-                    return GroceryItemTile(
-                      onPressed: () {
-                        Provider.of<CartModel>(context, listen: false)
-                            .addItemToCart(index);
-                      },
-                      itemName: value.shopItems[index][0],
-                      itemPrice: value.shopItems[index][1],
-                      imagePath: value.shopItems[index][2],
-                      color: value.shopItems[index][3],
-                    );
-                  },
-                );
-              },
-            )),
+            Expanded(
+              child: Consumer<CartModel>(
+                builder: (context, value, child) {
+                  return GridView.builder(
+                    itemCount: value.shopItems.length,
+                    padding: const EdgeInsets.all(12),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 1 / 1.3,
+                    ),
+                    itemBuilder: (context, index) {
+                      return GroceryItemTile(
+                        onPressed: () {
+                          Provider.of<CartModel>(context, listen: false)
+                              .addItemToCart(index);
+                        },
+                        itemName: value.shopItems[index][0],
+                        itemPrice: value.shopItems[index][1],
+                        imagePath: value.shopItems[index][2],
+                        color: value.shopItems[index][3],
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
